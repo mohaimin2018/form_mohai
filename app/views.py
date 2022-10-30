@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .forms import CustomerForm
+
 
 
 def index(request):
@@ -10,6 +11,9 @@ def index(request):
 		form = CustomerForm(request.POST)
 		if form.is_valid():
 			form.save()
+
 			
 	context = {'form':form}
 	return render(request, 'app/index.html', context)
+
+
